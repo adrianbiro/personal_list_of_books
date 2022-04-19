@@ -2,7 +2,6 @@
 import csv
 """A try for the organization of a personal list of books."""
 # TODO Clean-up of data to SQLite format for comfortable querying
-# TODO sort names
 
 with open("Archiv_literatura.csv", 'w', newline='') as csvfile:
     filewriter = csv.writer(csvfile, delimiter=',',dialect='unix', quoting=csv.QUOTE_MINIMAL)
