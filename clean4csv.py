@@ -10,7 +10,7 @@ with open("clean4_literatura.csv", 'w', newline='') as csvfile:
         name, title, town, publisher, date = i
         if name == "Name" and title == "Title" and town == "Town" and  publisher == "Publisher" and date == "Date":
             continue
-        if name and title == "" and town == "" and  publisher == "" and date == "":
+        if name and not title and not town and not  publisher and not date:
             *name, date = name.split(" ")
             date = date.replace(".", "")
             if len(date) == 4:
@@ -63,13 +63,11 @@ with open("clean4_literatura.csv", 'w', newline='') as csvfile:
             #print(name)
             #print(name, title, town, publisher, date)
 
-
-
+            filewriter.writerow([name, title, town, publisher, date])
         else:
             filewriter.writerow([name, title, town, publisher, date])
             continue
 
 
 
-        filewriter.writerow([name, title, town, publisher, date])
 
