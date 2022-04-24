@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 import csv
 
-data = csv.reader(open("clean3_literatura.csv"), delimiter=",")
+data = csv.reader(open("old/clean3_literatura.csv"), delimiter=",")
 
 with open("clean4_literatura.csv", 'w', newline='') as csvfile:
-    filewriter = csv.writer(csvfile, delimiter=',',dialect='unix', quoting=csv.QUOTE_MINIMAL)
-    filewriter.writerow(["Name", "Title", "Town", "Publisher", "Date"])
+    header_list = ["Name", "Title", "Town", "Publisher", "Date"]
+    dw = csv.DictWriter(csvfile, delimiter=',', dialect='unix', fieldnames=header_list, quoting=csv.QUOTE_MINIMAL)
+    dw.writeheader()
+    filewriter = csv.writer(csvfile, delimiter=',', dialect='unix', quoting=csv.QUOTE_MINIMAL)
     for i in data:
         name, title, town, publisher, date = i
         if name == "Name" and title == "Title" and town == "Town" and  publisher == "Publisher" and date == "Date":
