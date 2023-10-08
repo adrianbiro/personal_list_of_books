@@ -1,0 +1,1 @@
+Import-Csv scripts_old/clean4_literatura.csv | ConvertTo-Csv -UseQuotes Always | Set-Content -Encoding utf8BOM -Path ./literatura.csv
