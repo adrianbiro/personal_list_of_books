@@ -1,0 +1,41 @@
+That's a great idea. A well-structured prompt will maximize the accuracy and efficiency of the AI performing this task.
+
+Here is a comprehensive prompt you can use, detailing the goal, input, process, and required output:
+
+***
+
+## AI Prompt: Bibliographic Data Enrichment
+
+I need you to act as a **specialized information retrieval agent and bibliographer**. Your task is to process a list of book entries from a CSV file, search for specific metadata online, and compile the results.
+
+### 1. Input Data & Scope
+The data is in a file named `literatura.csv`. The key columns for searching are:
+* `Name` (Author(s))
+* `Title` (Book Title)
+* `Town`, `Publisher`, `Date` (Used to pinpoint the correct edition)
+
+### 2. Core Task: Online Search & Extraction
+For each book entry, you must construct a precise search query using the Author, Title, and Publication details to locate the most accurate metadata for that specific edition.
+
+You must extract the following **four mandatory data points**:
+
+| Field to Extract | Description |
+| :--- | :--- |
+| **Link** | A direct URL to a reputable source (e.g., a national library catalog, academic database, or reliable book retailer) that confirms the edition details. |
+| **Page Count** | The total number of pages for the listed edition. |
+| **ISBN/Catalog No.** | The **International Standard Book Number (ISBN)**. If the book predates ISBNs (like many older entries), provide the official **legacy catalog number** or identifier found in library records. |
+| **Edition** | The specific edition details (e.g., '1st edition', 'Vydání první'). If an edition name is unavailable, use the publication year as the Edition. |
+
+### 3. Output Format & Handling Missing Data
+
+The final output must be a comprehensive **CSV file** or a clear **Markdown table**.
+
+1.  **Include All Original Columns** from the input file.
+2.  **Append the four new columns** to the end of the table: `Link`, `Page Count`, `ISBN/Catalog No.`, and `Edition`.
+3.  **Handling N/A:** If any of the four required metadata fields cannot be definitively located for an entry, enter **N/A** for that specific field.
+
+### **Example Output Row Structure (Mandatory)**
+
+| Name | Title | ... (Original Columns) | Link | Page Count | ISBN/Catalog No. | Edition |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Aischylos | Orestela | ... | [Link URL] | 316 | N/A | Vyd. 1. (1944) |
