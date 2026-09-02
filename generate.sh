@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PATH=$PATH:/Applications/calibre.app/Contents/MacOS
+
 mv -v calibre-*.csv old/
 
 calibredb catalog "zmaz-$(date -I).csv"
